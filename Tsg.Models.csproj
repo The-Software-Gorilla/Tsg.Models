@@ -6,13 +6,12 @@
     <Nullable>enable</Nullable>
 
     <!-- NuGet package metadata -->
-    <PackageId>MyCompany.Math</PackageId>
-    <Version>1.0.0</Version>               <!-- semantic versioning -->
-    <Authors>Kitsap CU Engineering</Authors>
-    <Company>MyCompany</Company>
-    <Description>Common math utilities used across services.</Description>
-    <PackageTags>utilities;math;shared</PackageTags>
-    <RepositoryUrl>https://github.com/myorg/mycompany.math</RepositoryUrl>
+    <PackageId>Tsg.Models</PackageId>
+    <Authors>Bruce Gruenbaum</Authors>
+    <Company>Intangere, LLC</Company>
+    <Description>Shared models for The Software Gorilla projects.</Description>
+    <PackageTags>models;utilities;shared</PackageTags>
+    <RepositoryUrl>https://github.com/The-Software-Gorilla/Tsg.Models</RepositoryUrl>
     <PackageLicenseExpression>MIT</PackageLicenseExpression>
     <PackageReadmeFile>README.md</PackageReadmeFile>
 
@@ -22,9 +21,11 @@
     <SymbolPackageFormat>snupkg</SymbolPackageFormat>
     <PublishRepositoryUrl>true</PublishRepositoryUrl>
     <EmbedUntrackedSources>true</EmbedUntrackedSources>
-    <ContinuousIntegrationBuild>true</ContinuousIntegrationBuild>
-    <TreatWarningsAsErrors>true</TreatWarningsAsErrors>
     <EnablePackageValidation>true</EnablePackageValidation>
+      
+      <Version Condition="'$(Version)' == ''">1.0.0</Version>
+
+      <ContinuousIntegrationBuild Condition="'$(GITHUB_ACTIONS)' == 'true'">true</ContinuousIntegrationBuild>
 
   </PropertyGroup>
 
@@ -32,8 +33,8 @@
   <ItemGroup>
     <PackageReference Include="Microsoft.SourceLink.GitHub" Version="8.0.0" PrivateAssets="All"/>
   </ItemGroup>
-  <ItemGroup>
-    <EditorConfigFiles Remove=".editorconfig" />
-  </ItemGroup>
+    <ItemGroup>
+        <None Include="README.md" Pack="true" PackagePath="\" />
+    </ItemGroup>
 
 </Project>

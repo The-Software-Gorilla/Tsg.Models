@@ -1,0 +1,50 @@
+name: publish
+on:
+  push:
+    tags:
+      - 'v*'       # publish when you push a tag like v1.2.3
+  workflow_dispatch:
+
+jobs:
+  build-and-publish:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: read
+      packages: write   # required for GitHub Packages
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Setup .NET
+        uses: actions/setup-dotnet@v4
+        with:
+          dotnet-version: '8.0.x'
+
+      # Extract version from tag: refs/tags/v1.2.3 -> 1.2.3
+      - name: Compute version
+        id: ver
+        run: |
+          ref="${GITHUB_REF##*/}"
+          echo "tag=${ref}" >> $GITHUB_OUTPUT
+          echo "semver=${ref#v}" >> $GITHUB_OUTPUT
+
+      - name: Restore
+        run: dotnet restore
+
+      - name: Build
+        run: dotnet build -c Release --no-restore
+
+      - name: Pack
+        run: dotnet pack -c Release --no-build /p:Version=${{ steps.ver.outputs.semver }}
+
+      - name: Add GitHub Packages source
+        run: |
+          dotnet nuget add source "https://nuget.pkg.github.com/${{ github.repository_owner }}/index.json" \
+            --name "github" \
+            --username "${{ github.actor }}" \
+            --password "${{ secrets.GITHUB_TOKEN }}" \
+            --store-password-in-clear-text
+
+      - name: Push package
+        run: |
+          dotnet nuget push "**/*.nupkg" --source "github" --skip-duplicate
+          dotnet nuget push "**/*.snupkg" --source "github" --skip-duplicate
