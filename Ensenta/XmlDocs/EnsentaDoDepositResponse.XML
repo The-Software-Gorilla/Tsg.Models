@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<soap:Envelope xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:soap="http://schemas.xmlsoap.org/soap/envelope/">
+    <soap:Body>
+        <DoDepositTransactionResponse xmIns="http:/ /ensenta.com/ECWebDepositHostRequest">
+            <DoDepositTransactionResult>
+                <ResponseDescription>Approved or completed successfully</ResponseDescription>
+                <ResponseCode>00</ResponseCode>
+                <SystemTraceNumber>77277</SystemTraceNumber>
+                <TransmitZuluDateTime>2025-09-12T16:31:11.4481953Z</TransmitZuluDateTime>
+            </DoDepositTransactionResult>
+        </DoDepositTransactionResponse>
+    </soap:Body>
+</soap:Envelope>

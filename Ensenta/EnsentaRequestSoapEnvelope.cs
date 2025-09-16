@@ -6,11 +6,11 @@ namespace Tsg.Models.Ensenta;
 /// Ensenta SOAP envelope for wrapping the SOAP body
 /// </summary>
 [XmlRoot(ElementName = "Envelope", Namespace = "http://schemas.xmlsoap.org/soap/envelope/")]
-public class EnsentaSoapEnvelope
+public class EnsentaRequestSoapEnvelope
 {
     /// <summary>
     /// Body of the SOAP envelope
     /// </summary>
     [XmlElement(ElementName = "Body", Namespace = "http://schemas.xmlsoap.org/soap/envelope/")]
-    public EnsentaSoapBody? Body { get; set; }
+    public EnsentaRequestSoapBody? Body { get; set; }
 }

@@ -5,7 +5,7 @@ namespace Tsg.Models.Ensenta;
 /// <summary>
 /// Ensenta SOAP body containing the DoDepositTransaction element
 /// </summary>
-public class EnsentaSoapBody
+public class EnsentaRequestSoapBody
 {
     /// <summary>
     /// DoDepositTransaction element for the SOAP body
