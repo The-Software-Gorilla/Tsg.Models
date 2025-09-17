@@ -11,49 +11,49 @@ public class DoDepositTransaction
     /// <summary>
     /// Account holder number (string)
     /// </summary>
-    [XmlElement]
+    [XmlElement("AccountHolderNumber")]
     [JsonPropertyName("accountHolderNumber")]
     public string? AccountHolderNumber { get; set; }
 
     /// <summary>
     /// Account suffix (string)
     /// </summary>
-    [XmlElement]
+    [XmlElement("AcctSuffix")]
     [JsonPropertyName("acctSuffix")]
     public string? AcctSuffix { get; set; }
 
     /// <summary>
     /// Receipt transaction number (string)
     /// </summary>
-    [XmlElement]
+    [XmlElement("ReceiptTransactionNumber")]
     [JsonPropertyName("receiptTransactionNumber")]
     public string? ReceiptTransactionNumber { get; set; }
 
     /// <summary>
     /// Station date and time in ISO 8601 format (string)
     /// </summary>
-    [XmlElement]
+    [XmlElement("StationDateTime")]
     [JsonPropertyName("stationDateTime")]
     public string? StationDateTime { get; set; }
 
     /// <summary>
     /// Reversal flag ("Y" or "N")
     /// </summary>
-    [XmlElement]
+    [XmlElement("IsReversalFlag")]
     [JsonPropertyName("isReversalFlag")]
     public string? IsReversalFlag { get; set; }
 
     /// <summary>
     /// Transaction type (e.g., "D" for deposit)
     /// </summary>
-    [XmlElement]
+    [XmlElement("TransactionType")]
     [JsonPropertyName("transactionType")]
     public string? TransactionType { get; set; }
 
     /// <summary>
     /// Fee amount in decimal format (string). "0.00" if no fee.
     /// </summary>
-    [XmlElement]
+    [XmlElement("FeeAmount")]
     [JsonPropertyName("feeAmount")]
     public string? FeeAmount { get; set; }
 

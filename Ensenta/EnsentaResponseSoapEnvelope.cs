@@ -26,5 +26,5 @@ public class EnsentaResponseSoapEnvelope
 
     [XmlElement("Body", Namespace = SoapEnvelopeNamespace)]
     [JsonPropertyName("body")]
-    public EnsentaResponseSoapBody Body { get; set; } = new();
+    public EnsentaResponseSoapBody? Body { get; set; } = new();
 }

@@ -1,3 +1,4 @@
+using System.Text.Json.Serialization;
 using System.Xml.Serialization;
 
 namespace Tsg.Models.Ensenta;
@@ -10,6 +11,7 @@ public class EnsentaRequestSoapBody
     /// <summary>
     /// DoDepositTransaction element for the SOAP body
     /// </summary>
-    [XmlElement(ElementName = "DoDepositTransaction", Namespace = "http://ensenta.com/ECWebDepositHostRequest")]
+    [XmlElement(ElementName = "DoDepositTransaction", Namespace = EnsentaRequestSoapEnvelope.EnsentaNamespace)]
+    [JsonPropertyName("doDepositTransaction")]
     public DoDepositTransaction? DoDepositTransaction { get; set; }
 }
