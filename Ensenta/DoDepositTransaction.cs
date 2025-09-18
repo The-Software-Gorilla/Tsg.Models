@@ -34,7 +34,7 @@ public class DoDepositTransaction
     /// </summary>
     [XmlElement("stationDateTime")]
     [JsonPropertyName("stationDateTime")]
-    public string? StationDateTime { get; set; }
+    public DateTime? StationDateTime { get; set; }
 
     /// <summary>
     /// Reversal flag ("Y" or "N")
